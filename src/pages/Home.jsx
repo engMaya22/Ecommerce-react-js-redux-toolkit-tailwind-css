@@ -4,6 +4,7 @@ import {categories} from "../utlis/data"
 import HeroImage from "../assets/images/hero-page.png"
 import { useNavigate } from 'react-router-dom'
 import { FaCircle } from 'react-icons/fa'
+import InfoSection from '../components/InfoSection'
 
 
 const Home = () => {
@@ -32,8 +33,8 @@ const Home = () => {
                       onClick={()=>navigate("/shop")}>SHOP NOW</button>
                   </div>
                 </div>
-              
        </div>
+       <InfoSection />
    </div>
   )
 }
