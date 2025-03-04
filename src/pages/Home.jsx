@@ -5,6 +5,7 @@ import HeroImage from "../assets/images/hero-page.png"
 import { useNavigate } from 'react-router-dom'
 import { FaCircle } from 'react-icons/fa'
 import InfoSection from '../components/InfoSection'
+import CategorySection from '../components/CategorySection'
 
 
 const Home = () => {
@@ -29,12 +30,13 @@ const Home = () => {
                      <h2 className='text-3xl font-bold'>Welcome To E-SHOP</h2>
                      <p className='text-gray-800 font-bold mt-2.5 text-xl'> MILLIONS + PRODUCTS</p>
                      <button className='bg-red-600 px-8 py-1.5  text-white mt-4 hover:bg-red-700
-                                           transform  transition-transform duration-300 hover:scale-105'
+                                           transation-card'
                       onClick={()=>navigate("/shop")}>SHOP NOW</button>
                   </div>
                 </div>
        </div>
        <InfoSection />
+       <CategorySection />
    </div>
   )
 }

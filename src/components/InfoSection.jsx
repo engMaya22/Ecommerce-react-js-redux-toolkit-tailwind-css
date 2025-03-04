@@ -9,7 +9,7 @@ const InfoSection = () => {
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4  mt-8">
                     {infoItems.map(item => <div key={item.id}
                                         className="flex flex-col bg-white shadow-md p-4 border rounded-lg justify-center items-center
-                                        transform  transition-transform duration-300 hover:scale-105 cursor-pointer">
+                                        transation-card cursor-pointer">
                                         {item.icon}
                                         <h3 className="mt-4 font-semibold text-xl ">{item.title}</h3>
                                         <p className="mt-4 text-gray-600">{item.description}</p>

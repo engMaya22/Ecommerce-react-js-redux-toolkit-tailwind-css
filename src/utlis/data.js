@@ -1,4 +1,8 @@
 
+import MenImage from "../assets/images/man.png"
+import WomanImage from "../assets/images/woman.png"
+import KidImage from "../assets/images/kid.png"
+
 
 export const categories = [
     'Elecotronics' , 
@@ -7,6 +11,24 @@ export const categories = [
     'Beauty',
     'Sports' , 
     'Automotive'
+];
+
+
+export const categoriesInfo = [
+    {
+        title : 'Men',
+        image : MenImage
+    },
+    {
+        title : 'Woman',
+        image : WomanImage
+    },
+    
+    {
+        title : 'Kids',
+        image : KidImage
+    },
+
 ];
 
 // export const infoItems = [
