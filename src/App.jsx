@@ -31,4 +31,4 @@ const App = () => {
 
 export default App
 
-// flex-1 makes item shrink to be all remain space like in navbar
+// flex-1 makes item shrink to be by w-full all remain space like in navbar
