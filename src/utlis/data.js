@@ -45,51 +45,59 @@ export const productsInfo = [
         id:1 ,
         image : Image1,
         name: 'Bag',
-        price: 29.99
+        price: 29.99 ,
+        rate : 5 ,
 
     },
     {
         id:2 ,
         image : Image2,
         name: 'Sandle',
-        price: 10.09
+        price: 10.09 ,
+        rate : 4 ,
 
     },    
     {
         id:3 ,
         image : Image3,
         name: 'Watch',
-        price: 29.99
+        price: 29.99 ,
+        rate : 4 ,
 
     },    {
         id:4 ,
         image : Image4,
         name: 'Cap',
-        price: 29.99
+        price: 29.99 ,
+        rate : 5 ,
 
     },    {
         id:5,
         image : Image5,
         name: 'Boot',
-        price: 29.99
+        price: 29.99 ,
+        rate : 4 ,
 
     },    {
         id:6 ,
         image : Image6,
         name: 'Dove',
-        price: 29.99
+        price: 29.99 ,
+        rate : 3 ,
 
     },    {
         id:7 ,
         image : Image7,
         name: 'Headphone',
-        price: 29.99
+        price: 29.99 ,
+        rate : 4 ,
 
     },    {
         id:8,
         image : Image8,
         name: 'Robot',
-        price: 29.99
+        price: 29.99 ,
+        rate : 4 ,
 
     },
     {
@@ -103,7 +111,8 @@ export const productsInfo = [
         id:10 ,
         image : Image10,
         name: 'Shirt',
-        price: 29.99
+        price: 29.99 ,
+        rate : 5,
 
     },
 ]

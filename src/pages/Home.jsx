@@ -1,24 +1,19 @@
 
-import React, { useEffect } from 'react'
-import {categories , productsInfo} from "../utlis/data"
+import React from 'react'
+import {categories } from "../utlis/data"
 import HeroImage from "../assets/images/hero-page.png"
 import { useNavigate } from 'react-router-dom'
 import { FaCircle } from 'react-icons/fa'
 import InfoSection from '../components/InfoSection'
 import CategorySection from '../components/CategorySection'
-import { useDispatch, useSelector } from 'react-redux'
-import { setProducts } from '../redux/productSlice'
+import TopProducsSection from '../components/TopProducsSection'
+
 
 
 const Home = () => {
   const navigate = useNavigate();
   
-  const dispatch = useDispatch();
-  const products = useSelector(state => state.product.products);//key name on store is product
-  useEffect(()=>{
-    dispatch(setProducts((productsInfo)));
-    
-  },[])
+ 
 
   return (
    <div className='px-4 mt-2 bg-white md:px-16 lg:px-24'>
@@ -46,8 +41,8 @@ const Home = () => {
        </div>
        <InfoSection />
        <CategorySection />
+       <TopProducsSection />
 
-       {products.slice(0,5).map((el)=><div key={el.id}>{el.name}</div>)}
    </div>
   )
 }
