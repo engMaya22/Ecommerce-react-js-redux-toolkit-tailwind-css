@@ -40,6 +40,51 @@ export const categoriesInfo = [
 
 ];
 
+
+export const featuredProductsInfo = [
+    {
+        id:1 ,
+        image : Image1,
+        name: 'Bag',
+        price: 29.99 ,
+        rate : 5 ,
+
+    },
+    {
+        id:2 ,
+        image : Image2,
+        name: 'Sandle',
+        price: 10.09 ,
+        rate : 4 ,
+
+    },    
+    {
+        id:3 ,
+        image : Image3,
+        name: 'Watch',
+        price: 29.99 ,
+        rate : 4 ,
+
+    },    {
+        id:4 ,
+        image : Image4,
+        name: 'Cap',
+        price: 29.99 ,
+        rate : 5 ,
+
+    },    {
+        id:5,
+        image : Image5,
+        name: 'Boot',
+        price: 29.99 ,
+        rate : 5 ,
+
+    },    
+      
+    
+    
+]
+
 export const productsInfo = [
     {
         id:1 ,
@@ -104,7 +149,8 @@ export const productsInfo = [
         id:9 ,
         image : Image9,
         name: 'Watch',
-        price: 29.99
+        price: 29.99,
+        rate:2
 
     },
     {

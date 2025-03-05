@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { FaCircle } from 'react-icons/fa'
 import InfoSection from '../components/InfoSection'
 import CategorySection from '../components/CategorySection'
-import TopProducsSection from '../components/TopProducsSection'
+import FeaturedProdutcsSection from '../components/FeaturedProductsSection'
 
 
 
@@ -41,7 +41,7 @@ const Home = () => {
        </div>
        <InfoSection />
        <CategorySection />
-       <TopProducsSection />
+       <FeaturedProdutcsSection />
 
    </div>
   )
