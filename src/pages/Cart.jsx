@@ -16,7 +16,7 @@ const Cart = ( )=>{
                                         <div className="flex items-center justify-between mb-4 text-xs font-bold border-b">
                                             <p>Products</p>
                                             <div className="flex space-x-8">
-                                                <p>Price</p>
+                                                <p className="sm:mr-[-20px] md:mr-[40px]">Price</p>
                                                 <p>Quantity</p>  
                                                 <p>Subtototal</p>  
                                                 <p>Remove</p>
