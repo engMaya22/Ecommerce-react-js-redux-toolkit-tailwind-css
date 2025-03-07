@@ -32,3 +32,6 @@ const App = () => {
 export default App
 
 // flex-1 makes item shrink to be by w-full all remain space like in navbar
+
+//to do make add to cart disable if there is item already added , work on notification swall when addTocart, details product
+//persist to save data in store 
