@@ -42,11 +42,31 @@ const cartSlice = createSlice ({
                 state.totalQuantity  -= itemInCart.quantity;
                 state.products = state.products.filter(item => item.id != id);
             }
+        },
+        increaseQuantity(state , action){
+            const id = action.payload;
+            const itemInCart = state.products.find(item => item.id === id);
+            if(itemInCart){
+                itemInCart.quantity ++ ;
+                itemInCart.totalPrice += itemInCart.price;
+                state.totalQuantity  ++;
+                state.totalPrice += itemInCart.price;
+            }
+        },
+        decreaseQuantity(state , action){
+            const id = action.payload;
+            const itemInCart = state.products.find(item => item.id === id);
+            if(itemInCart && itemInCart.quantity >1){
+                itemInCart.quantity -- ;
+                itemInCart.totalPrice -= itemInCart.price;
+                state.totalQuantity  --;
+                state.totalPrice -= itemInCart.price;
+            }
         }
 
     }
 
 
 })
-export const  {addTocart , removeFromCart} = cartSlice.actions
-export default cartSlice.reducer
+export const  {addTocart , removeFromCart , increaseQuantity , decreaseQuantity} = cartSlice.actions
+export default cartSlice.reducer 
