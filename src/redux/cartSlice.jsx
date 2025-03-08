@@ -31,16 +31,22 @@ const cartSlice = createSlice ({
              }
              state.totalQuantity  ++ ;
              state.totalPrice += newItem.price;
-             
-
-            //  
            
 
+        },
+        removeFromCart(state , action){
+            const id = action.payload;
+            const itemInCart = state.products.find(item => item.id === id);
+            if(itemInCart){
+                state.totalPrice -= itemInCart.totalPrice;
+                state.totalQuantity  -= itemInCart.quantity;
+                state.products = state.products.filter(item => item.id != id);
+            }
         }
 
     }
 
 
 })
-export const  {addTocart} = cartSlice.actions
+export const  {addTocart , removeFromCart} = cartSlice.actions
 export default cartSlice.reducer
