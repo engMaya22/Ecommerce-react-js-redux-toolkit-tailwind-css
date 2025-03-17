@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
                   <Route index element={<Home />}></Route>
                   <Route path="/shop" element={<Shop />}></Route>
                   <Route path="/cart" element={<Cart />}></Route>
+                  <Route path="/checkout" element={<Checkout />} ></Route>
                   <Route path="*" element={<NotFound />}></Route>
 
         </Route>

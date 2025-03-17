@@ -13,8 +13,6 @@ import FeaturedProdutcsSection from '../components/FeaturedProductsSection'
 const Home = () => {
   const navigate = useNavigate();
   
- 
-
   return (
    <div className='px-4 mt-2 bg-white md:px-16 lg:px-24'>
        <div className='container flex flex-col py-4 mx-auto space-x-2 md:flex-row'>
