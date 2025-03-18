@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 
-const Checkout = ()=>{
+const Checkout = ({setOrder})=>{
+    const navigate = useNavigate();
     const [billingToggle , setBillingToggle] = useState(true);
     const [shippingToggle , setShippingToggle] = useState(false);
     const [paymentToggle , setPaymentToggle] = useState(false);
@@ -17,6 +19,21 @@ const Checkout = ()=>{
         zip: ''
 
     });
+
+    const handleOrder = ()=>{
+        const newOrder = {
+            shippingInformation :shippingInfo,
+            paymentMethod,
+            products:cart.products,
+            orderNumber : '129393' ,
+            totalPrice : cart.totalPrice
+            
+            
+        }
+        setOrder(newOrder)
+        navigate("/order-confirmation")
+        
+    }
 
     
    return <div className="container px-4 py-8 mx-auto min-h-96 md:px-16 lg:px-24">
@@ -64,19 +81,19 @@ const Checkout = ()=>{
                                                     <div className={`space-y-4 ${shippingToggle ? "" : "hidden"}`} >
                                                         <div>
                                                             <label htmlFor="address" className="block text-gray-700">Address </label>
-                                                            <input type="text" name="phone" className="w-full px-3 py-2 border" 
-                                                             onChange={(e)=>setShippingInfo({...shippingInfo , address :  e.target.value})}/>
+                                                            <input required type="text" name="phone" className="w-full px-3 py-2 border" 
+                                                             onChange={(e)=>setShippingInfo({...shippingInfo , address :e.target.value})}/>
                                                         </div>
                                                         <div>
                                                             <label htmlFor="city" className="block text-gray-700 ">City </label>
-                                                            <input type="text" name="city" id="city"  placeholder="Enter City" className="w-full px-3 py-2 border"
-                                                            onChange={(e)=>setShippingInfo({...shippingInfo , city :  e.target.value})}
+                                                            <input required type="text" name="city" id="city"  placeholder="Enter City" className="w-full px-3 py-2 border"
+                                                            onChange={(e)=>setShippingInfo({...shippingInfo , city :e.target.value})}
                                                             />
                                                         </div>
                                                     
                                                         <div>
                                                             <label htmlFor="zip" className="block text-gray-700">Zip code </label>
-                                                            <input type="text" name="zip" placeholder="Enter Email" className="w-full px-3 py-2 border"
+                                                            <input required type="text" name="zip" placeholder="Enter Email" className="w-full px-3 py-2 border"
                                                             onChange={(e)=>setShippingInfo({...shippingInfo , zip:e.target.value})} />
                                                         </div>
                                                 
@@ -161,7 +178,8 @@ const Checkout = ()=>{
                                                 </div>
                                             
                                               </div>
-                                              <button className="w-full py-2 mt-6 text-white bg-red-600 hover:bg-red-800">Place Order</button>
+                                              <button className="w-full py-2 mt-6 text-white bg-red-600 hover:bg-red-800"
+                                                onClick={handleOrder}>Place Order</button>
                                               
                                             
                                             

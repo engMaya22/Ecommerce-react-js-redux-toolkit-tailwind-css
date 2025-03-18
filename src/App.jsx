@@ -5,11 +5,15 @@ import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import { useState } from "react";
+import Order from "./pages/Order";
 
 
 
 
 const App = () => {
+
+  const [ order , setOrder] = useState(null);
 
   const router = createBrowserRouter(
       createRoutesFromElements(
@@ -17,7 +21,9 @@ const App = () => {
                   <Route index element={<Home />}></Route>
                   <Route path="/shop" element={<Shop />}></Route>
                   <Route path="/cart" element={<Cart />}></Route>
-                  <Route path="/checkout" element={<Checkout />} ></Route>
+                  <Route path="/checkout" element={<Checkout setOrder={setOrder} />} ></Route>
+                  <Route path="/order-confirmation" element={<Order order={order} />} ></Route>
+
                   <Route path="*" element={<NotFound />}></Route>
 
         </Route>
@@ -39,3 +45,5 @@ export default App
 
 //to do make add to cart disable if there is item already added , work on notification swall when addTocart, details product
 //persist to save data in store 
+// use formik for checkout validation
+//save data checkout in localstorage
