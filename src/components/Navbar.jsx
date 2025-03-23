@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa"
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom"
+import Login from "./Login";
+import Register from "./Register";
+import Modal from "./Modal";
 
 
 
@@ -8,6 +12,18 @@ import { Link, NavLink } from "react-router-dom"
 const Navbar = () => {
     const classLinks  = ({isActive} ) => isActive ?  "underline text-red-500" : "hover:underline";
     const totalQuantity = useSelector(state => state.cart.totalQuantity);
+    const [isLogin , setIsLogin] = useState(true);
+    const [isModalOpen , setIsModalOpen] = useState(false);
+
+    const openSignUp =()=>{
+        setIsLogin(false)
+        setIsModalOpen(true)
+    }
+    const openLogin =()=>{
+        setIsLogin(true)
+        setIsModalOpen(true)
+    }
+
 
   return (
     <nav className="bg-white shadow-md">
@@ -28,7 +44,7 @@ const Navbar = () => {
                     <FaShoppingCart className="text-lg" />
                     {totalQuantity > 0 && <span className="absolute top-0 flex items-center justify-center w-3 text-xs text-white bg-red-600 rounded-full left-3">{totalQuantity}</span>}
                 </Link>
-                <button className="hidden md:block">
+                <button className="hidden md:block" onClick={()=>setIsModalOpen(true)}>
                     Login | Register
                 </button>
                 <button className="block md:hidden">
@@ -44,6 +60,7 @@ const Navbar = () => {
                 <NavLink to="/about" className={classLinks}>ABOUT</NavLink>
 
         </div>
+        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>{isLogin ? <Login openSignUp={openSignUp}/> : <Register openLogin={openLogin} /> }</Modal>
     </nav>
 
   )

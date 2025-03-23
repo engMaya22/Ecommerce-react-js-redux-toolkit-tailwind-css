@@ -47,3 +47,6 @@ export default App
 //persist to save data in store 
 // use formik for checkout validation
 //save data checkout in localstorage
+//make more beautiful desgin with animation for titles 
+//make order number function dynamic generated number
+//use custom hook for logic
