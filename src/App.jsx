@@ -45,7 +45,7 @@ export default App
 
 //to do make add to cart disable if there is item already added , work on notification swall when addTocart, details product
 //persist to save data in store 
-// use formik for checkout validation
+// use formik for checkout validation and login , register forms
 //save data checkout in localstorage
 //make more beautiful desgin with animation for titles 
 //make order number function dynamic generated number

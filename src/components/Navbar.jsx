@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa"
-import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import Login from "./Login";
 import Register from "./Register";
 import Modal from "./Modal";
+import { setSearchTerm } from "../redux/productSlice";
 
 
 
@@ -14,14 +15,26 @@ const Navbar = () => {
     const totalQuantity = useSelector(state => state.cart.totalQuantity);
     const [isLogin , setIsLogin] = useState(true);
     const [isModalOpen , setIsModalOpen] = useState(false);
+    const [searchKey , setSearchKey] = useState('');
 
-    const openSignUp =()=>{
-        setIsLogin(false)
+    
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    const openAuthHandle =()=>{
+        setIsLogin(state => !state)
         setIsModalOpen(true)
     }
-    const openLogin =()=>{
-        setIsLogin(true)
-        setIsModalOpen(true)
+    // const openLogin =()=>{
+    //     setIsLogin(true)
+    //     setIsModalOpen(true)
+    // }
+    const handleSearch=(e)=>{
+        e.preventDefault();
+        dispatch(setSearchTerm(searchKey));
+        navigate('/shop')
+        
     }
 
 
@@ -34,8 +47,8 @@ const Navbar = () => {
                 </Link>
             </div>  
             <div className="relative flex-1 mx-4">
-                <form className="">
-                    <input type="text"  placeholder="Search Product" className="w-full px-4 py-2 border"/>
+                <form className="" onSubmit={handleSearch}>
+                    <input onChange={(e)=>setSearchKey(e.target.value)} type="text"  placeholder="Search Product" className="w-full px-4 py-2 border"/>
                     <FaSearch className="absolute text-red-500 right-3 top-3"></FaSearch>
                 </form>
             </div>
@@ -60,7 +73,7 @@ const Navbar = () => {
                 <NavLink to="/about" className={classLinks}>ABOUT</NavLink>
 
         </div>
-        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>{isLogin ? <Login openSignUp={openSignUp}/> : <Register openLogin={openLogin} /> }</Modal>
+        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>{isLogin ? <Login openSignUp={openAuthHandle}/> : <Register openLogin={openAuthHandle} /> }</Modal>
     </nav>
 
   )
