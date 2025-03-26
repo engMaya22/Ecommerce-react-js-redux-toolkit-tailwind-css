@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import { useState } from "react";
 import Order from "./pages/Order";
+import Details from "./pages/Details";
 
 
 
@@ -20,6 +21,8 @@ const App = () => {
         <Route path="/" element={<MainLayout />}>
                   <Route index element={<Home />}></Route>
                   <Route path="/shop" element={<Shop />}></Route>
+                  <Route path="/product/:id" element={<Details />}></Route>
+
                   <Route path="/cart" element={<Cart />}></Route>
                   <Route path="/checkout" element={<Checkout setOrder={setOrder} />} ></Route>
                   <Route path="/order-confirmation" element={<Order order={order} />} ></Route>
@@ -50,3 +53,4 @@ export default App
 //make more beautiful desgin with animation for titles 
 //make order number function dynamic generated number
 //use custom hook for logic
+///fix details page , products get []

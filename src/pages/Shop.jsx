@@ -26,8 +26,8 @@ const Shop = () => {
                               <>
                                   <h2 className='mb-6 text-2xl font-bold text-center'>Shop</h2>
                                     <div className='container grid grid-cols-1 gap-6 cursor-pointer sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5'>
-                                      {displayedProducts.map((el, indx) => (
-                                        <ProductCard key={indx} product={el} />
+                                      {displayedProducts.map((el) => (
+                                        <ProductCard key={el.id} product={el} />
                                       ))}
                                   </div>
                               </>
