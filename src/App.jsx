@@ -46,15 +46,13 @@ export default App
 
 // flex-1 makes item shrink to be by w-full all remain space like in navbar
 
+// use formik for checkout validation and login , register forms
 
-///fix details page , products get []
+
 
 
 //to do make add to cart disable if there is item already added , work on notification swall when addTocart, details product
-// use formik for checkout validation and login , register forms
-//save data checkout in localstorage
-//make more beautiful desgin with animation for titles 
-//make order number function dynamic generated number
+//make order number function dynamic generated number anc required
 //use custom hook for logic
 //about and contact desgin
-//add to cart in details
+

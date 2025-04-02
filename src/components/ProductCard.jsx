@@ -9,7 +9,7 @@ const ProductCard = ({product}) => {
    const addHandler = (e)=>{
       e.stopPropagation();//to not to go to details when click on card
       e.preventDefault();//
-      dispatch(addTocart(product));
+      dispatch(addTocart({ product  }));
       
    }
 

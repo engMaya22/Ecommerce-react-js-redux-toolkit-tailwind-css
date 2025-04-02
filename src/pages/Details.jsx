@@ -1,18 +1,31 @@
 import { useEffect, useState } from "react";
 import { FaCarSide } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa6";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addTocart } from "../redux/cartSlice";
 
 const Details = () => {
   const { id } = useParams();
   const products = useSelector((state) => state.product.products);
+  const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
+  const [qty, setQty] = useState(1);
 
+
+ 
   useEffect(() => {
     const foundProduct = products.find((p) => p.id === parseInt(id));
     setProduct(foundProduct || null);
   }, [id, products]);
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    dispatch(addTocart({ product, qty:parseInt(qty) }));
+    
+  }
+
+  
 
   if (!product) return <div className="py-10 text-lg font-semibold text-center">Loading...</div>;
 
@@ -33,15 +46,18 @@ const Details = () => {
 
             {/* Quantity & Add to Cart */}
             <div className="flex items-center mt-6 gap-x-4">
-              <input
+            <form onSubmit={(e)=>handleSubmit(e)}>
+               <input
+                onChange={(e)=>setQty(e.target.value)}
                 type="number"
                 className="w-20 p-2 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                 min="1"
                 defaultValue="1"
               />
-              <button className="px-6 py-2 font-semibold text-white transition duration-300 bg-red-600 rounded-lg hover:bg-red-800">
+              <button type="submit" className="px-6 py-2 font-semibold text-white transition duration-300 bg-red-600 rounded-lg hover:bg-red-800">
                 Add to Cart
               </button>
+           </form>
             </div>
           </div>
 

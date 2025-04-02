@@ -11,26 +11,30 @@ const cartSlice = createSlice ({
     initialState ,
     reducers :{
         addTocart(state , action){
-            
-             const newItem = action.payload;
-             const itemInCart = state.products.find(el => el.id === newItem.id);//isAlreadyExsist in state.products 
-             if(itemInCart){
-                itemInCart.quantity ++;
-                itemInCart.totalPrice += itemInCart.price;
 
-             }else{
+            const { product, qty } = action.payload;
+           
+            const quantityToAdd = qty && qty > 0 ? qty : 1; 
+            
+             const itemInCart = state.products.find(el => el.id === product.id);//isAlreadyExsist in state.products 
+             if(itemInCart){
+              
+                 itemInCart.quantity += quantityToAdd;
+                 itemInCart.totalPrice += quantityToAdd * itemInCart.price;
+
+                }else{
                 state.products.push({
-                    id : newItem.id,
-                    name: newItem.name,
-                    quantity : 1 ,
-                    price : newItem.price ,
-                    totalPrice: newItem.price,//for first time , later we add this
-                    image : newItem.image
+                    id : product.id,//not found id
+                    name: product.name,
+                    quantity :quantityToAdd ,
+                    price : product.price ,
+                    totalPrice: product.price,//for first time , later we add this
+                    image : product.image
 
                 });
              }
-             state.totalQuantity  ++ ;
-             state.totalPrice += newItem.price;
+             state.totalQuantity  += quantityToAdd ;
+             state.totalPrice += quantityToAdd*product.price;
            
 
         },
