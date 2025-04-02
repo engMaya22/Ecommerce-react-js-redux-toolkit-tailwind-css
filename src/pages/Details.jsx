@@ -2,75 +2,65 @@ import { useEffect, useState } from "react";
 import { FaCarSide } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa6";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
-
-
-
-
-
-
+import { useParams } from "react-router-dom";
 
 const Details = () => {
+  const { id } = useParams();
+  const products = useSelector((state) => state.product.products);
+  const [product, setProduct] = useState(null);
 
-    const {id} = useParams();//return string id
-    const products = useSelector(state => state.product.products); //here is empty   
+  useEffect(() => {
+    const foundProduct = products.find((p) => p.id === parseInt(id));
+    setProduct(foundProduct || null);
+  }, [id, products]);
 
-    const [product , setProduct] = useState(null);
+  if (!product) return <div className="py-10 text-lg font-semibold text-center">Loading...</div>;
 
-
-    useEffect(()=>{
-
-        const foundProduct = products.find((p) => p.id === parseInt(id)); // Ensure type match
-        setProduct(foundProduct);
-
-
-    },[id , products])
-
-    
-
-    // if(!product)return <div>Loading ...</div>
-
-    
   return (
-    <div className="container px-4 py-8 mx-auto md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row gap-x-16"> 
-            <div className="flex justify-center py-4 shadow-md md:w-1/2 md:px-8 h-96">
-               <img src={product.image}  className="h-full" alt={product.name} />
-                
-            </div>
-
-            <div className="flex flex-col items-center p-4 shadow-md md:w-1/2 md:p-16 gap-y-2">
-               <h2 className="mb-2 text-3xl font-semibold">{product.name}</h2>
-               <p className="mb-4 text-xl font-semibold text-gray-800">
-                {product.price}
-               </p>
-                
-            </div>
-
-            <div className="flex items-center mb-4 gap-x-2">
-                 <input type="number" className="w-16 p-1 border"/>
-                  <button className="text-white bg-red-600 py-1.5 px-4 hover:bg-red-800">
-                    Add to cart
-                  </button>
-                
-            </div>
-            <div >
-                <p className="flex items-center ">
-                    <FaCarSide className="mr-1" />
-                    Delivery & return
-                </p>
-                <p className="flex items-center ">
-                    <FaQuestion className="mr-1" />
-                    Ask  a Question ? 
-                    
-                </p>
-                
-            </div>
-            
+    <div className="container px-6 py-12 mx-auto md:px-16 lg:px-24">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        
+        {/* Product Image */}
+        <div className="flex items-center justify-center p-6 overflow-hidden bg-white rounded-lg shadow-lg">
+          <img src={product.image} alt={product.name} className="object-contain h-96" />
         </div>
-      
-    </div>
-  )
-}
 
-export default Details
+        {/* Product Details */}
+        <div className="flex flex-col justify-between p-6 bg-white rounded-lg shadow-lg">
+          <div>
+            <h2 className="text-3xl font-semibold text-gray-800">{product.name}</h2>
+            <p className="mt-2 text-xl font-semibold text-red-600">${product.price}</p>
+
+            {/* Quantity & Add to Cart */}
+            <div className="flex items-center mt-6 gap-x-4">
+              <input
+                type="number"
+                className="w-20 p-2 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                min="1"
+                defaultValue="1"
+              />
+              <button className="px-6 py-2 font-semibold text-white transition duration-300 bg-red-600 rounded-lg hover:bg-red-800">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-8 space-y-3 text-gray-700">
+            <p className="flex items-center gap-x-2">
+              <FaCarSide className="text-lg text-red-500" />
+              <span>Delivery & Return</span>
+            </p>
+            <p className="flex items-center gap-x-2">
+              <FaQuestion className="text-lg text-red-500" />
+              <span>Ask a Question?</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Details;

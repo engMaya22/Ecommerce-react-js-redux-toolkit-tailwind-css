@@ -106,28 +106,28 @@ export const productsInfo = [
         id:3 ,
         image : Image3,
         name: 'Watch',
-        price: 29.99 ,
+        price: 50.99 ,
         rate : 4 ,
 
     },    {
         id:4 ,
         image : Image4,
         name: 'Cap',
-        price: 29.99 ,
+        price: 49.99 ,
         rate : 5 ,
 
     },    {
         id:5,
         image : Image5,
         name: 'Boot',
-        price: 29.99 ,
+        price: 20.99 ,
         rate : 4 ,
 
     },    {
         id:6 ,
         image : Image6,
         name: 'Dove',
-        price: 29.99 ,
+        price: 25.99 ,
         rate : 3 ,
 
     },    {
