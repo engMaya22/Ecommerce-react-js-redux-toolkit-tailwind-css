@@ -1,13 +1,34 @@
-import { configureStore } from "@reduxjs/toolkit";
-import productSlice from "./productSlice"
-import cartSlice from "./cartSlice"
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // Local storage
 
+import cartSlice from "./cartSlice";
+import productSlice from "./productSlice";
 
-const store = configureStore({
-    reducer:{
-        cart: cartSlice,//cart name uses in use selector
-        product : productSlice ,// name uses in use selector
-    }
-})
+// Combine reducers inside store.jsx
+const rootReducer = combineReducers({
+  cart: cartSlice,
+  product: productSlice,
+});
 
-export default store;
+// Persist config
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["cart", "product"], // Persist these slices
+};
+
+// Create persisted reducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// Configure store with persisted reducer
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // Required for redux-persist
+    }),
+});
+
+// Persistor instance
+export const persistor = persistStore(store);
