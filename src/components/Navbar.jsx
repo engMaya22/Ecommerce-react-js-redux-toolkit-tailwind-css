@@ -69,11 +69,11 @@ const Navbar = () => {
         <div className="flex justify-center py-4 space-x-10 text-sm font-bold ">
                 <NavLink to="/" className={classLinks}>HOME</NavLink>
                 <NavLink to="/shop" className={classLinks}>SHOP</NavLink>
-                <NavLink to="/contact" className={classLinks}>CONTACT</NavLink>
                 <NavLink to="/about" className={classLinks}>ABOUT</NavLink>
+                <NavLink to="/contact" className={classLinks}>CONTACT</NavLink>
 
         </div>
-        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>{isLogin ? <Login openSignUp={openAuthHandle}/> : <Register openLogin={openAuthHandle} /> }</Modal>
+        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>{isLogin ? <Login openSignUp={openAuthHandle} setIsModalOpen={setIsModalOpen}/> : <Register openLogin={openAuthHandle} setIsModalOpen={setIsModalOpen} /> }</Modal>
     </nav>
 
   )

@@ -45,13 +45,13 @@ const App = () => {
 export default App
 
 // flex-1 makes item shrink to be by w-full all remain space like in navbar
-
-// use formik for checkout validation and login , register forms
-
+// pass setIsModalOpen to children using React.cloneElement
 
 
 
-//to do make add to cart disable if there is item already added , work on notification swall when addTocart, details product
+//useAuthContext for login and register and checkout like job poster
+
+// , work on notification swall when addTocart
 //make order number function dynamic generated number anc required
 //use custom hook for logic
 //about and contact desgin
