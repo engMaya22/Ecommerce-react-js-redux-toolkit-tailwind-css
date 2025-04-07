@@ -3,11 +3,12 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom"
 import * as Yup from "yup"
+import { useAuthContext } from "../context/AuthContext";
 
 
 const Login = ({openSignUp ,setIsModalOpen})=>{
     const navigate = useNavigate();
-    // const {loginUser} = useAuthContext();
+    const {loginUser} = useAuthContext();
 
 
     const initialValues = {
@@ -19,7 +20,7 @@ const Login = ({openSignUp ,setIsModalOpen})=>{
         password: Yup.string().required('Required')
     })
     function handleSubmit(values) {
-        // loginUser(values)
+       loginUser(values)
         setIsModalOpen(false);
         
         navigate('/shop')

@@ -8,6 +8,7 @@ import Checkout from "./pages/Checkout";
 import { useState } from "react";
 import Order from "./pages/Order";
 import Details from "./pages/Details";
+import { AuthProvider } from "./context/AuthContext";
 
 
 
@@ -36,7 +37,7 @@ const App = () => {
 
 
   return (
-    <RouterProvider router={router} />
+    <AuthProvider> <RouterProvider router={router} /></AuthProvider> 
 
    
   )
@@ -49,10 +50,10 @@ export default App
 
 
 
-//useAuthContext for login and register and checkout like job poster
+
+//checkout rout by brwoser can get ! without even have any item + back ! we have to prevent it from back
 
 // , work on notification swall when addTocart
-//make order number function dynamic generated number anc required
-//use custom hook for logic
+
 //about and contact desgin
 

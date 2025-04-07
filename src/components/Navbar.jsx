@@ -6,6 +6,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Modal from "./Modal";
 import { setSearchTerm } from "../redux/productSlice";
+import { useAuthContext } from "../context/AuthContext";
 
 
 
@@ -16,6 +17,8 @@ const Navbar = () => {
     const [isLogin , setIsLogin] = useState(true);
     const [isModalOpen , setIsModalOpen] = useState(false);
     const [searchKey , setSearchKey] = useState('');
+
+    const {user  , logoutUser} = useAuthContext();
 
     
     const navigate = useNavigate();
@@ -57,9 +60,14 @@ const Navbar = () => {
                     <FaShoppingCart className="text-lg" />
                     {totalQuantity > 0 && <span className="absolute top-0 flex items-center justify-center w-3 text-xs text-white bg-red-600 rounded-full left-3">{totalQuantity}</span>}
                 </Link>
-                <button className="hidden md:block" onClick={()=>setIsModalOpen(true)}>
-                    Login | Register
-                </button>
+                {user  ?  <>   <span>Hi, {user.name} 👋</span>
+                                       <button onClick={logoutUser} className="px-2 py-2 text-white bg-red-600 rounded-md">Logout</button></>: (
+                     <button className="hidden md:block" onClick={()=>setIsModalOpen(true)}>
+                     Login | Register
+                     </button>
+                    
+                )}
+               
                 <button className="block md:hidden">
                     <FaUser />
                 </button>
