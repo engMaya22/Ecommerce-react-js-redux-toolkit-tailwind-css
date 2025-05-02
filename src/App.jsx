@@ -60,7 +60,6 @@ export default App
 
 // , work on notification swall when addTocart
 
-//about and contact desgin
 
 // make contact email to send mail 
 //make details componenet desgin better
