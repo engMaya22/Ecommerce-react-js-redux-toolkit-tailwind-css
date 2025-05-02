@@ -37,6 +37,7 @@ Follow these steps to get the project up and running on your local machine:
    cd your-repo-name
    
 2- **Install dependencies** Make sure you have Node.js (v18 or later) installed.
+   ```bash
 npm install
 
 3- **Run the development server**
