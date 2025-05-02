@@ -38,13 +38,13 @@ Follow these steps to get the project up and running on your local machine:
    
 2. **Install dependencies** Make sure you have Node.js (v18 or later) installed.
    ```bash
-npm install
+   npm install
 
 3. **Run the development server**
    ```bash
-npm run dev
-Open http://localhost:5173 in your browser to see the app.
+   npm run dev
+   Open http://localhost:5173 in your browser to see the app.
 
 4. **Build for production**
   ```bash
-npm run build
+  npm run build
