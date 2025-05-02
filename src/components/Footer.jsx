@@ -36,11 +36,11 @@ const Footer = () => {
                          <a href="" className="hover:text-gray-400"><FaLinkedin /></a>
 
                      </div>
-                     <form className="flex items-center justify-center mt-8"> 
+                     {/* <form className="flex items-center justify-center mt-8"> 
                        <input type="email" placeholder="Enter Email" className="w-full p-2 bg-gray-800 border border-gray-600 rounded-l-lg "/>
                        <button className="px-4 py-2 text-white bg-red-600 rounded-r-lg ">Subscribe</button>
 
-                     </form>
+                     </form> */}
                   
                 </div>
 
