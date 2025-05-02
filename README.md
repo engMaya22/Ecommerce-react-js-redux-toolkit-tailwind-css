@@ -1,12 +1,48 @@
-# React + Vite
+# 🚀 Ecommerce React JS Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an **eCommerce web application** built using the modern React ecosystem and best practices.  
+It includes features like product listings, cart management, form validation, and responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🛠️ Tech Stack & Techniques Used:
 
-## Expanding the ESLint configuration
+- **React 19** — For building dynamic, component-based UI.
+- **Redux Toolkit & Redux Persist** — Manages the global state, including **cart functionality**, and persists state across sessions.
+- **React Router v7** — Handles client-side routing for seamless page transitions.
+- **Formik & Yup** — Used for **form handling** and **validation** (e.g., checkout forms, login/signup forms).
+- **Tailwind CSS** — For **responsive**, utility-first styling, ensuring a clean and modern design.
+- **Vite** — Provides fast development and optimized build performance.
+- **React Icons** — For lightweight, scalable icons.
+- **ESLint** — Ensures code quality and consistency using React and hooks linting rules.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### ✨ Key Features:
+- Add/remove items from cart with state persistence.
+- Responsive design powered by Tailwind.
+- Form validation using Formik + Yup.
+- Modular structure following modern React best practices.
+- Filter products
+
+---
+
+## 📦 Installation & Running Locally
+
+Follow these steps to get the project up and running on your local machine:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/engMaya22/Ecommerce-react-js-redux-toolkit-tailwind-css.git
+   cd your-repo-name
+2- **Install dependencies**
+Make sure you have Node.js (v18 or later) installed.
+npm install
+
+3 - **Run the development server**
+npm run dev
+Open http://localhost:5173 in your browser to see the app.
+
+4- **Build for production**
+
+npm run build
