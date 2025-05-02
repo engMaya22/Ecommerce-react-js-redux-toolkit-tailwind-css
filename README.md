@@ -35,9 +35,9 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    git clone https://github.com/engMaya22/Ecommerce-react-js-redux-toolkit-tailwind-css.git
    cd your-repo-name
-2- **Install dependencies**
+2- **Install dependencies** Make sure you have Node.js (v18 or later) installed.
+
 ```bash
-Make sure you have Node.js (v18 or later) installed.
 npm install
 
 3 - **Run the development server**
