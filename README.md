@@ -40,9 +40,11 @@ Make sure you have Node.js (v18 or later) installed.
 npm install
 
 3 - **Run the development server**
+
 npm run dev
 Open http://localhost:5173 in your browser to see the app.
 
 4- **Build for production**
+
 
 npm run build
