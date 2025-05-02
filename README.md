@@ -40,11 +40,11 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
 npm install
 
-3- **Run the development server**
-   ```bash
+**3- Run the development server
+**   ```bash
 npm run dev
 Open http://localhost:5173 in your browser to see the app.
 
-4- **Build for production**
-   ```bash
+**4- Build for production
+**   ```bash
 npm run build
